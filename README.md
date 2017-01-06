@@ -9,8 +9,12 @@ This is a fully working 3D game engine made from scratch using raycasting. It
 have a game loop, textures, map management, animations and a smooth gameplay.
 It is also multithreaded. Note this is not a production ready engine.
 
-It was made as a 42 project (school 42 at Paris). Making that kind of engine
+It was made as a 42 project (school 42 at Paris) named Wolf3D. Making that kind of engine
 wasn't asked but I wanted to make things well.
+
+I made [a demo on YouTube](https://youtu.be/oU3RUNNH1Vc):
+
+[![Open YouTube demo](https://raw.githubusercontent.com/mhammerc/my_engine/master/example/resources/splash.png)](https://youtu.be/oU3RUNNH1Vc)
 
 ## How to run
 
