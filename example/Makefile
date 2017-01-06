@@ -24,6 +24,18 @@ OBJS = $(SRCS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -I../my_engine
 
+ENV_LIBRARY =
+
+UNAME := $(shell uname)
+
+ifeq ($(UNAME),Linux)
+	ENV_LIBRARY += LD_LIBRARY_PATH
+endif
+
+ifeq ($(UNAME),Darwin)
+	ENV_LIBRARY += DYLD_LIBRARY_PATH
+endif
+
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
@@ -43,11 +55,11 @@ prepare_game:
 	$(info Compiling game...)
 
 $(NAME): make_engine prepare_game $(OBJS)
-	@gcc $(OBJS) -o $(NAME) -L../my_engine -lme
+	gcc $(OBJS) -o $(NAME) -L../my_engine -lme
 	$(info Success! Run make start to run the example game.)
 
 start:
-	DYLD_LIBRARY_PATH=$(ENGINE_PATH) ./example
+	$(ENV_LIBRARY)=$(ENGINE_PATH) ./example
 
 clean: clean_engine
 	$(info Cleaning game...)

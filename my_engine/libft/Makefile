@@ -69,23 +69,33 @@ SRC = ft_atoi.c \
 	  ft_putbinary.c \
 	  ft_pow.c \
 	  ft_sqrt.c \
-	  ft_get_next_line.c
+	  ft_get_next_line.c \
+	  ft_printf/ft_printf.c \
+	  ft_printf/parse1.c \
+	  ft_printf/parse.c \
+	  ft_printf/register_printf_function.c \
+	  ft_printf/search_conversion.c \
+	  ft_printf/wide_char.c \
+	  ft_printf/conversions/printf_print_char.c \
+	  ft_printf/conversions/printf_print_decimal_signed.c \
+	  ft_printf/conversions/printf_print_decimal_unsigned.c \
+	  ft_printf/conversions/printf_print_hexadecimal.c \
+	  ft_printf/conversions/printf_print_octal.c \
+	  ft_printf/conversions/printf_print_percentage.c \
+	  ft_printf/conversions/printf_print_pointer.c \
+	  ft_printf/conversions/printf_print_string.c
 
 OBJECTS = $(SRC:.c=.o)
 
-FT_PRINTF_OBJS = $(addprefix ft_printf/, $(shell make -s -C ft_printf list))
-
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fPIC
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-		make -C ft_printf
-		ar rcs $(NAME) $(OBJECTS) $(FT_PRINTF_OBJS)
+		ar rcs $(NAME) $(OBJECTS)
 
 clean:
-		make -C ft_printf clean
 		rm -rf $(OBJECTS)
 
 fclean: clean

@@ -190,7 +190,6 @@ typedef struct			s_me_events
 	t_me_mouse_move		mouse_move;
 }						t_me_events;
 
-int						me_game_loop(void *param);
 int						me_key_press(int keycode, void *param);
 int						me_key_release(int keycode, void *param);
 int						me_mouse_move(int x, int y, void *param);

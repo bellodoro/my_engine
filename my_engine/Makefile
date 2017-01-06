@@ -44,22 +44,36 @@ SRCS = me_add_state.c \
 
 OBJS = $(SRCS:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra -O3 -Iminilibx_macos -Ilibft
-
 LIBFT_PATH = libft
+MLX_PATH =
 
-MINILIBX_PATH = minilibx_macos
+CFLAGS = -Wall -Werror -Wextra -O3 -Ilibft
+LFLAGS = -lmlx -lpthread -lm -L$(LIBFT_PATH) -lft -lbsd
+
+UNAME := $(shell uname)
+
+ifeq ($(UNAME),Darwin)
+	MLX_PATH += minilibx_macos
+	LFLAGS += -Lminilibx_macos -framework AppKit -framework OpenGL
+	CFLAGS += -Iminilibx_macos
+endif
+
+ifeq ($(UNAME),Linux)
+	MLX_PATH += minilibx_linux
+	LFLAGS += -Lminilibx_linux -lX11 -lXext
+	CFLAGS += -Iminilibx_linux
+endif
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C $(LIBFT_PATH)
-	make -C $(MINILIBX_PATH)
-	gcc -shared -o $(NAME) -lmlx -lft -lm -framework AppKit -framework OpenGL -Llibft -Lminilibx_macos $(OBJS)
+	-make -C $(MLX_PATH)
+	gcc -shared -o $(NAME) $(OBJS) $(LFLAGS)
 
 clean:
 	make -C $(LIBFT_PATH) clean
-	make -C $(MINILIBX_PATH) clean
+	make -C $(MLX_PATH) clean
 	rm -rf $(OBJS)
 
 fclean: clean

@@ -14,7 +14,7 @@
 
 #include <math.h>
 
-void	me_raycaster_print_crosshair(t_me_engine *engine)
+static void	me_raycaster_print_crosshair(t_me_engine *engine)
 {
 	t_me_texture	*crosshair;
 	int				x;
@@ -43,7 +43,7 @@ void	me_raycaster_print_crosshair(t_me_engine *engine)
 	}
 }
 
-void	me_raycaster_render(t_me_engine *engine, void *data, int begin, int end)
+void		me_raycaster_render(t_me_engine *engine, void *data, int begin, int end)
 {
 	t_raycasting_data				*info;
 	t_me_raycasting_rendering_data	x;

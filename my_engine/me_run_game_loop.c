@@ -54,7 +54,7 @@ static void		start_render_threads(t_me_engine *engine)
 		pthread_join(threads[i++], NULL);
 }
 
-int				me_game_loop(void *param)
+static int				me_game_loop(void *param)
 {
 	t_me_engine		*engine;
 	t_me_state		*state;
