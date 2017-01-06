@@ -14,6 +14,15 @@ wasn't asked but I wanted to make things well.
 
 ## How to run
 
+Just open a shell and run
+
+    make && make start
+
+On Linux, a few warning will show up. They are not from me but from minilibx
+:(
+
+## Under the hood
+
 There is an example game in *example* folder, sources of the engine are located
 in *my_engine* folder.
 
@@ -26,6 +35,6 @@ draw pixels and load .xpm files.
 
 On Mac you need XCode.
 
-On linux you need a few packages. Adapt to your distribution:
+On Linux you need a few packages. Adapt to your distribution:
 
     apt update && apt install build-essential libx11-dev libxext-dev libbsd-dev
