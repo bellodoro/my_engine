@@ -28,4 +28,4 @@ On Mac you need XCode.
 
 On linux you need a few packages. Adapt to your distribution:
 
-    apt update && apt install build-essential libX11-dev libXext-dev libbsd-dev
+    apt update && apt install build-essential libx11-dev libxext-dev libbsd-dev
