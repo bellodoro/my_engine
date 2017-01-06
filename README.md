@@ -5,9 +5,9 @@
 When I was planning the development, I didn't got able to find a proper name.
 So on, I called my engine 'my_engine'.
 
-This is a 3D game engine using raycasting. It have a game loop, textures, map
-management, animations and a smooth gameplay. It is also multithreaded. Note
-this is not a production ready engine.
+This is a fully working 3D game engine made from scratch using raycasting. It
+have a game loop, textures, map management, animations and a smooth gameplay.
+It is also multithreaded. Note this is not a production ready engine.
 
 It was made as a 42 project (school 42 at Paris). Making that kind of engine
 wasn't asked but I wanted to make things well.
